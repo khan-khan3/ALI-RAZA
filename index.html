@@ -1,140 +1,235 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Account Security Notice</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Account Security Notice</title>
+<style>
+  :root{
+    --bg: #f1f3f5;
+    --card-bg: #ffffff;
+    --accent1: #1e90ff;
+    --accent2: #1767e6;
+    --muted: #6b7280;
+    --card-radius: 18px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    min-height:100vh;
+    display:flex;
+    align-items:flex-end; /* card near bottom like screenshot */
+    justify-content:center;
+    padding:20px;
+  }
 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 20px;
-      max-width: 420px;
-      width: 100%;
-      position: relative;
-      text-align: center;
-    }
+  /* Card */
+  .card {
+    width:100%;
+    max-width:420px;
+    background:var(--card-bg);
+    border-radius:var(--card-radius);
+    box-shadow: 0 18px 40px rgba(14,30,37,0.12);
+    padding:20px 20px 26px;
+    position:relative;
+    overflow:visible;
+  }
 
-    .logo {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-    }
+  /* small top-left facebook circle */
+  .logo {
+    position:absolute;
+    top:14px;
+    left:14px;
+    width:40px;
+    height:40px;
+  }
+  .fb-circle{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background: radial-gradient(circle at 30% 20%, #2b8cf6, #1767e6);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-weight:700;
+    font-size:18px;
+    box-shadow: 0 6px 18px rgba(23,103,230,0.18);
+  }
 
-    .fb-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: #1877f2;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 18px;
-    }
+  /* close button top-right */
+  .close-btn{
+    position:absolute;
+    top:12px;
+    right:12px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background: rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.06);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    font-size:18px;
+    color:#222;
+  }
 
-    .close-x {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      cursor: pointer;
-      color: #444;
-    }
+  /* illustration */
+  .illustration {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:18px;
+    padding-bottom:8px;
+  }
+  .illustration svg{ width:220px; height:auto; display:block; }
 
-    .illustration img {
-      max-width: 200px;
-      margin: 40px auto 20px;
-      display: block;
-    }
+  /* Title and paragraphs */
+  h1{
+    margin:14px 18px 8px;
+    text-align:center;
+    font-size:20px;
+    line-height:1.2;
+    color:#0f1720;
+    font-weight:700;
+  }
+  .text {
+    margin:0 28px;
+    text-align:center;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.6;
+  }
 
-    h1 {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 10px 0 15px;
-      line-height: 1.3;
-    }
+  /* Buttons */
+  .buttons{
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    padding:0 16px;
+  }
 
-    .desc {
-      font-size: 14px;
-      color: #606770;
-      margin: 8px 0;
-      line-height: 1.5;
-    }
+  .btn{
+    width:100%;
+    padding:14px 16px;
+    border-radius:14px;
+    border:0;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+  }
 
-    .buttons {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+  .btn-primary{
+    background: linear-gradient(180deg, var(--accent1), var(--accent2));
+    color:#fff;
+    box-shadow: 0 10px 18px rgba(23,103,230,0.18);
+  }
 
-    .btn {
-      padding: 14px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 15px;
-      cursor: pointer;
-      border: none;
-      width: 100%;
-    }
+  .btn-secondary{
+    background:#f3f4f6;
+    color:#111827;
+    box-shadow: 0 6px 10px rgba(16,24,40,0.04);
+  }
 
-    .btn-primary {
-      background: linear-gradient(#1877f2, #166fe5);
-      color: #fff;
-    }
-
-    .btn-secondary {
-      background: #f0f2f5;
-      color: #111;
-    }
-  </style>
+  /* make sure card has bottom spacing similar to screenshot */
+  @media (max-width:420px){
+    .card{ padding-bottom:28px; }
+    h1{ font-size:18px; }
+    .illustration svg{ width:200px; }
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <!-- FB logo -->
-    <div class="logo">
+  <div class="card" role="dialog" aria-labelledby="title" aria-describedby="desc">
+    <div class="logo" aria-hidden="true">
       <div class="fb-circle">f</div>
     </div>
 
-    <!-- Close button -->
-    <button class="close-x" aria-label="Close">✕</button>
+    <button class="close-btn" aria-label="Close" title="Close" onclick="closeCard()">✕</button>
 
-    <!-- Illustration -->
-    <div class="illustration">
-      <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/ExampleShield.png" alt="Security Illustration">
+    <div class="illustration" aria-hidden="false" aria-label="security illustration">
+      <!-- Inline SVG: shield + key + two simple avatars -->
+      <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="false">
+        <defs>
+          <linearGradient id="gA" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#2b8cf6"/>
+            <stop offset="1" stop-color="#1767e6"/>
+          </linearGradient>
+          <linearGradient id="gB" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#ffd59e"/>
+            <stop offset="1" stop-color="#f3b249"/>
+          </linearGradient>
+        </defs>
+
+        <!-- left small avatar (simple shapes) -->
+        <g transform="translate(20,150)">
+          <rect x="12" y="24" width="64" height="16" rx="8" fill="#bde6ff" />
+          <rect x="16" y="8" width="56" height="20" rx="8" fill="#ffb74d" />
+          <circle cx="44" cy="0" r="12" fill="#8b5a34" />
+        </g>
+
+        <!-- right small avatar -->
+        <g transform="translate(330,150)">
+          <rect x="24" y="24" width="64" height="16" rx="8" fill="#ffd59e" />
+          <rect x="24" y="6" width="56" height="20" rx="8" fill="#bde6ff" />
+          <circle cx="52" cy="-8" r="12" fill="#ff6b81" />
+        </g>
+
+        <!-- shield in center -->
+        <g transform="translate(120,10)">
+          <path d="M90 2 L150 23 V68 C150 115 90 145 90 145 C90 145 30 115 30 68 V23 Z" fill="url(#gA)"/>
+          <!-- keyhole -->
+          <circle cx="90" cy="70" r="18" fill="#062244"/>
+          <rect x="82" y="88" width="16" height="30" rx="6" fill="#062244"/>
+        </g>
+
+        <!-- big key to the right of shield -->
+        <g transform="translate(220,105)">
+          <rect x="60" y="20" width="100" height="20" rx="10" fill="url(#gB)"/>
+          <circle cx="60" cy="30" r="22" fill="url(#gB)"/>
+          <rect x="160" y="28" width="14" height="8" rx="2" fill="#f3b249"/>
+        </g>
+      </svg>
     </div>
 
-    <!-- Heading -->
-    <h1>Your account requires stronger security by 25 Sep 2025</h1>
+    <h1 id="title">Your account requires stronger security by 25 Sep 2025</h1>
 
-    <!-- Text -->
-    <p class="desc">
-      Your account has the potential to reach many people, so we require you to have Advanced Protection to help keep it secure.
-    </p>
-    <p class="desc">
-      This program helps defend accounts like yours against targeted online attacks. To complete your set up, you must have a strong password and two-factor authentication.
-    </p>
+    <div id="desc" class="text">
+      <p style="margin:0 0 10px 0;">
+        Your account has the potential to reach many people, so we require you to have Advanced Protection to help keep it secure.
+      </p>
+      <p style="margin:0;">
+        This program helps defend accounts like yours against targeted online attacks. To complete your set up, you must have a strong password and two-factor authentication.
+      </p>
+    </div>
 
-    <!-- Buttons -->
-    <div class="buttons">
-      <button class="btn btn-primary">Next</button>
-      <button class="btn btn-secondary">Learn more</button>
+    <div class="buttons" role="group" aria-label="Actions">
+      <button class="btn btn-primary" onclick="nextAction()">Next</button>
+      <button class="btn btn-secondary" onclick="learnMore()">Learn more</button>
     </div>
   </div>
+
+<script>
+  function closeCard(){
+    // smooth dismiss
+    const c = document.querySelector('.card');
+    c.style.transition = 'transform 260ms ease, opacity 260ms ease';
+    c.style.transform = 'translateY(24px) scale(0.98)';
+    c.style.opacity = '0';
+    setTimeout(()=> c.style.display='none', 300);
+  }
+  function nextAction(){
+    alert('Next — this is a mock preview.');
+  }
+  function learnMore(){
+    alert('Learn more — this is a mock preview.');
+  }
+</script>
 </body>
 </html>
