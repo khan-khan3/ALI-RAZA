@@ -4,235 +4,137 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Account Security Notice</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg: #ffffff;
-      --accent: #1877f2; /* facebook-like blue */
-      --muted: #6b7280;
-      --card-radius: 14px;
-      --btn-radius: 10px;
-      --max-width: 460px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:var(--bg);
-      color:#111827;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:20px;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
 
-    .frame{
-      width:100%;
-      max-width:var(--max-width);
-      border-radius:12px;
-      padding:18px 18px 28px;
-      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    .card {
       background: #fff;
-      position:relative;
-      min-height:640px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+      text-align: center;
     }
 
-    /* top bar icons */
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-bottom:8px;
-    }
-    .top-left{
-      display:flex;
-      align-items:center;
-      gap:8px;
-    }
-    .fb-circle{
-      width:34px;
-      height:34px;
-      border-radius:50%;
-      background: linear-gradient(180deg,#1877f2,#2b7af6);
-      display:inline-grid;
-      place-items:center;
-      color:white;
-      font-weight:700;
-      font-size:18px;
-      box-shadow:0 2px 6px rgba(24,119,242,0.25);
-    }
-    .close-x{
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      cursor:pointer;
-      position:absolute;
-      right:12px;
-      top:12px;
-    }
-    .close-x svg{opacity:0.6}
-
-    /* illustration area */
-    .illustration{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:36px 8px 6px;
-    }
-    .hero{
-      width:220px;
-      height:160px;
-      display:block;
-    }
-
-    h1{
-      margin:20px 8px 10px;
-      font-size:20px;
-      line-height:1.15;
-      font-weight:700;
-      text-align:center;
-    }
-    p.lead{
-      margin:8px 18px 0;
-      text-align:center;
-      color:var(--muted);
-      font-size:14.5px;
-      line-height:1.5;
-    }
-    p.lead + p{
-      margin-top:12px;
-    }
-
-    .buttons{
+    .logo {
       position: absolute;
-      left:18px;
-      right:18px;
-      bottom:18px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:100%;
-      padding:14px 16px;
-      border-radius:var(--btn-radius);
-      font-weight:600;
-      cursor:pointer;
-      border:0;
-      font-size:16px;
-    }
-    .btn-primary{
-      background:linear-gradient(180deg,var(--accent),#1b66d9);
-      color:white;
-      box-shadow:0 6px 12px rgba(24,119,242,0.12);
-    }
-    .btn-secondary{
-      background:#f3f4f6;
-      color:#111827;
-      font-weight:600;
+      top: 15px;
+      left: 15px;
     }
 
-    /* small footer note (date) */
-    .deadline{
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      margin-top:6px;
+    .fb-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: #1877f2;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
     }
 
-    /* responsive tweaks */
-    @media(min-width:520px){
-      .frame{padding:22px 22px 30px}
-      h1{font-size:22px}
-      .illustration{padding-top:28px}
-      .hero{width:280px;height:180px}
-      .buttons{bottom:22px;left:22px;right:22px}
+    .close-x {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #444;
+    }
+
+    .illustration img {
+      max-width: 200px;
+      margin: 40px auto 20px;
+      display: block;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0 15px;
+      line-height: 1.3;
+    }
+
+    .desc {
+      font-size: 14px;
+      color: #606770;
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: linear-gradient(#1877f2, #166fe5);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #f0f2f5;
+      color: #111;
     }
   </style>
 </head>
 <body>
-  <div class="frame" role="dialog" aria-labelledby="title" aria-describedby="desc">
-    <div class="topbar" aria-hidden="true">
-      <div class="top-left">
-        <div class="fb-circle" title="Facebook">f</div>
-      </div>
-      <div style="width:34px"></div>
-      <button class="close-x" aria-label="Close" title="Close">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M18 6L6 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M6 6L18 18" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+  <div class="card">
+    <!-- FB logo -->
+    <div class="logo">
+      <div class="fb-circle">f</div>
     </div>
 
-    <div class="illustration" role="img" aria-label="Security illustration">
-      <!-- simplified shield + lock + characters illustration as inline SVG -->
-      <svg class="hero" viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-        <defs>
-          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stop-color="#1e90ff"/>
-            <stop offset="1" stop-color="#2b7af6"/>
-          </linearGradient>
-        </defs>
-        <!-- shield -->
-        <g transform="translate(60,10)">
-          <path d="M100 0 L160 20 L160 80 C160 130 100 170 100 170 C100 170 40 130 40 80 L40 20 Z" fill="url(#g1)" opacity="0.98"/>
-          <!-- keyhole -->
-          <circle cx="100" cy="70" r="18" fill="#062244"/>
-          <rect x="92" y="86" width="16" height="28" rx="6" fill="#062244"/>
-        </g>
-        <!-- left character (simple) -->
-        <g transform="translate(0,110)">
-          <rect x="14" y="-8" width="40" height="28" rx="4" fill="#ffb74d"/>
-          <circle cx="34" cy="-16" r="12" fill="#8b5a34"/>
-          <rect x="8" y="18" width="52" height="10" rx="4" fill="#8fbde6"/>
-        </g>
-        <!-- right character (simple) -->
-        <g transform="translate(220,130)">
-          <circle cx="10" cy="-24" r="12" fill="#ff6b81"/>
-          <rect x="-12" y="-6" width="44" height="18" rx="4" fill="#bde6ff"/>
-          <rect x="-8" y="18" width="40" height="10" rx="4" fill="#ffd59e"/>
-        </g>
-        <!-- big key on right -->
-        <g transform="translate(190,60)">
-          <rect x="32" y="60" width="88" height="20" rx="10" fill="#f3b249"/>
-          <circle cx="32" cy="70" r="18" fill="#f3b249"/>
-        </g>
-      </svg>
+    <!-- Close button -->
+    <button class="close-x" aria-label="Close">✕</button>
+
+    <!-- Illustration -->
+    <div class="illustration">
+      <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yE/r/ExampleShield.png" alt="Security Illustration">
     </div>
 
-    <h1 id="title">Your account requires stronger security by 25 Sep 2025</h1>
+    <!-- Heading -->
+    <h1>Your account requires stronger security by 25 Sep 2025</h1>
 
-    <p class="lead" id="desc">
+    <!-- Text -->
+    <p class="desc">
       Your account has the potential to reach many people, so we require you to have Advanced Protection to help keep it secure.
     </p>
-    <p class="lead">
+    <p class="desc">
       This program helps defend accounts like yours against targeted online attacks. To complete your set up, you must have a strong password and two-factor authentication.
     </p>
 
-    <div class="deadline" aria-hidden="true">Deadline: 25 Sep 2025</div>
-
+    <!-- Buttons -->
     <div class="buttons">
-      <button class="btn btn-primary" id="nextBtn" type="button">Next</button>
-      <button class="btn btn-secondary" id="learnBtn" type="button">Learn more</button>
+      <button class="btn btn-primary">Next</button>
+      <button class="btn btn-secondary">Learn more</button>
     </div>
   </div>
-
-  <script>
-    // small interactive behaviour (no external links)
-    document.getElementById('nextBtn').addEventListener('click', function(){
-      alert('Proceed to setup (this is a mock).');
-    });
-    document.getElementById('learnBtn').addEventListener('click', function(){
-      alert('Show detailed help (this is a mock).');
-    });
-  </script>
 </body>
 </html>
